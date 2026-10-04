@@ -1,0 +1,802 @@
+[
+  {
+    "type": "guaranteed_returns",
+    "pattern": "(guaranteed|100%|sure|fixed) (return|profit|income|gain)",
+    "severity": "critical",
+    "description_en": "Promises of guaranteed returns in stock markets are illegal and highly indicative of a scam.",
+    "description_hi": "शेयर बाजार में गारंटीकृत रिटर्न का वादा अवैध है और यह एक घोटाले का संकेत है।",
+    "category": "investment",
+    "recommended_action_en": "Block the sender. Do not invest.",
+    "recommended_action_hi": "प्रेषक को ब्लॉक करें। निवेश न करें।"
+  },
+  {
+    "type": "guaranteed_returns",
+    "pattern": "double your money|2x returns",
+    "severity": "critical",
+    "description_en": "Promises to double money quickly are typical of ponzi schemes.",
+    "description_hi": "पैसे जल्दी दोगुना करने का वादा पोंजी योजनाओं की खासियत है।",
+    "category": "investment",
+    "recommended_action_en": "Report and ignore.",
+    "recommended_action_hi": "रिपोर्ट करें और अनदेखा करें।"
+  },
+  {
+    "type": "guaranteed_returns",
+    "pattern": "zero risk|risk free|no risk",
+    "severity": "high",
+    "description_en": "All investments carry risk. 'Zero risk' claims are false.",
+    "description_hi": "सभी निवेशों में जोखिम होता है। 'शून्य जोखिम' के दावे झूठे हैं।",
+    "category": "investment",
+    "recommended_action_en": "Avoid the scheme.",
+    "recommended_action_hi": "इस योजना से बचें।"
+  },
+  {
+    "type": "guaranteed_returns",
+    "pattern": "sure shot|confirm profit",
+    "severity": "high",
+    "description_en": "Claims of 'sure shot' profits in trading are deceptive.",
+    "description_hi": "ट्रेडिंग में 'श्योर शॉट' मुनाफे के दावे भ्रामक हैं।",
+    "category": "investment",
+    "recommended_action_en": "Do not trade based on this.",
+    "recommended_action_hi": "इसके आधार पर व्यापार न करें।"
+  },
+  {
+    "type": "guaranteed_returns",
+    "pattern": "monthly fixed income from stock|fixed monthly payout",
+    "severity": "medium",
+    "description_en": "Fixed income from stocks is impossible to guarantee.",
+    "description_hi": "शेयरों से निश्चित आय की गारंटी देना असंभव है।",
+    "category": "investment",
+    "recommended_action_en": "Verify the financial instrument.",
+    "recommended_action_hi": "वित्तीय साधन का सत्यापन करें।"
+  },
+  {
+    "type": "urgency_pressure",
+    "pattern": "offer ends in|act now|limited time|last chance",
+    "severity": "high",
+    "description_en": "Scammers create a false sense of urgency so you don't have time to think.",
+    "description_hi": "घोटालेबाज तात्कालिकता की झूठी भावना पैदा करते हैं ताकि आपके पास सोचने का समय न हो।",
+    "category": "manipulation",
+    "recommended_action_en": "Take your time. Do not rush any payment.",
+    "recommended_action_hi": "समय लें। कोई भी भुगतान जल्दबाजी में न करें।"
+  },
+  {
+    "type": "urgency_pressure",
+    "pattern": "only [0-9]+ slots left|few seats remaining",
+    "severity": "medium",
+    "description_en": "Artificial scarcity to force quick decisions.",
+    "description_hi": "त्वरित निर्णय लेने के लिए कृत्रिम कमी।",
+    "category": "manipulation",
+    "recommended_action_en": "Ignore the pressure.",
+    "recommended_action_hi": "दबाव को अनदेखा करें।"
+  },
+  {
+    "type": "urgency_pressure",
+    "pattern": "price will increase in|offer valid till midnight",
+    "severity": "high",
+    "description_en": "Time-based pressure tactics.",
+    "description_hi": "समय आधारित दबाव की रणनीति।",
+    "category": "manipulation",
+    "recommended_action_en": "Do not pay.",
+    "recommended_action_hi": "भुगतान न करें।"
+  },
+  {
+    "type": "urgency_pressure",
+    "pattern": "immediate transfer required|send money urgently",
+    "severity": "critical",
+    "description_en": "Urgent requests for money are almost always scams.",
+    "description_hi": "पैसे के लिए तत्काल अनुरोध लगभग हमेशा घोटाले होते हैं।",
+    "category": "advance_fee",
+    "recommended_action_en": "Block the sender immediately.",
+    "recommended_action_hi": "प्रेषक को तुरंत ब्लॉक करें।"
+  },
+  {
+    "type": "urgency_pressure",
+    "pattern": "your account will be suspended if you don't",
+    "severity": "critical",
+    "description_en": "Threats of account suspension to induce panic.",
+    "description_hi": "घबराहट पैदा करने के लिए खाता निलंबन की धमकियां।",
+    "category": "phishing",
+    "recommended_action_en": "Contact your bank directly.",
+    "recommended_action_hi": "सीधे अपने बैंक से संपर्क करें।"
+  },
+  {
+    "type": "fake_sebi_registration",
+    "pattern": "sebi (registered|approved|certified)",
+    "severity": "high",
+    "description_en": "Scammers often falsely claim SEBI registration. Always verify on the official SEBI website.",
+    "description_hi": "घोटालेबाज अक्सर SEBI पंजीकरण का झूठा दावा करते हैं। हमेशा आधिकारिक वेबसाइट पर सत्यापित करें।",
+    "category": "impersonation",
+    "recommended_action_en": "Verify their SEBI registration number on sebi.gov.in.",
+    "recommended_action_hi": "sebi.gov.in पर उनके SEBI पंजीकरण संख्या को सत्यापित करें।"
+  },
+  {
+    "type": "fake_sebi_registration",
+    "pattern": "authorized by nse|bse certified expert",
+    "severity": "medium",
+    "description_en": "Exchanges do not authorize individuals in this manner.",
+    "description_hi": "एक्सचेंज इस तरह से व्यक्तियों को अधिकृत नहीं करते हैं।",
+    "category": "impersonation",
+    "recommended_action_en": "Ask for registration details and verify.",
+    "recommended_action_hi": "पंजीकरण विवरण मांगें और सत्यापित करें।"
+  },
+  {
+    "type": "fake_sebi_registration",
+    "pattern": "rbi approved investment|government backed returns",
+    "severity": "critical",
+    "description_en": "RBI does not approve such investment schemes.",
+    "description_hi": "RBI ऐसी निवेश योजनाओं को मंजूरी नहीं देता है।",
+    "category": "impersonation",
+    "recommended_action_en": "Report to authorities.",
+    "recommended_action_hi": "अधिकारियों को रिपोर्ट करें।"
+  },
+  {
+    "type": "fake_sebi_registration",
+    "pattern": "reg no: [A-Z0-9]+ (but refuses to show certificate)",
+    "severity": "high",
+    "description_en": "Fake registration numbers are common.",
+    "description_hi": "फर्जी रजिस्ट्रेशन नंबर आम हैं।",
+    "category": "impersonation",
+    "recommended_action_en": "Verify the number on SEBI portal.",
+    "recommended_action_hi": "SEBI पोर्टल पर नंबर सत्यापित करें।"
+  },
+  {
+    "type": "fake_sebi_registration",
+    "pattern": "sebi compliance officer|legal team of nse",
+    "severity": "critical",
+    "description_en": "Impersonating exchange officials is illegal.",
+    "description_hi": "एक्सचेंज अधिकारियों का प्रतिरूपण करना अवैध है।",
+    "category": "impersonation",
+    "recommended_action_en": "Do not share details.",
+    "recommended_action_hi": "विवरण साझा न करें।"
+  },
+  {
+    "type": "ponzi_mlm_signals",
+    "pattern": "refer .* earn|add members|chain system",
+    "severity": "critical",
+    "description_en": "Earning money primarily by recruiting others is a sign of a pyramid scheme.",
+    "description_hi": "मुख्य रूप से दूसरों की भर्ती करके पैसे कमाना पिरामिड योजना का संकेत है।",
+    "category": "ponzi",
+    "recommended_action_en": "Do not join or refer others.",
+    "recommended_action_hi": "शामिल न हों या दूसरों को संदर्भित न करें।"
+  },
+  {
+    "type": "ponzi_mlm_signals",
+    "pattern": "level [1-9] income|matrix plan",
+    "severity": "high",
+    "description_en": "Multi-level income plans are often unsustainable.",
+    "description_hi": "मल्टी-लेवल आय योजनाएं अक्सर अस्थिर होती हैं।",
+    "category": "ponzi",
+    "recommended_action_en": "Avoid MLM schemes.",
+    "recommended_action_hi": "एमएलएम योजनाओं से बचें।"
+  },
+  {
+    "type": "ponzi_mlm_signals",
+    "pattern": "bring [0-9]+ people",
+    "severity": "critical",
+    "description_en": "Clear indicator of a pyramid scheme.",
+    "description_hi": "पिरामिड योजना का स्पष्ट संकेतक।",
+    "category": "ponzi",
+    "recommended_action_en": "Do not participate.",
+    "recommended_action_hi": "भाग न लें।"
+  },
+  {
+    "type": "ponzi_mlm_signals",
+    "pattern": "downline|upline commissions",
+    "severity": "medium",
+    "description_en": "MLM terminology indicating potential pyramid structures.",
+    "description_hi": "एमएलएम शब्दावली जो संभावित पिरामिड संरचनाओं को दर्शाती है।",
+    "category": "ponzi",
+    "recommended_action_en": "Exercise caution.",
+    "recommended_action_hi": "सावधानी बरतें।"
+  },
+  {
+    "type": "ponzi_mlm_signals",
+    "pattern": "binary matching|direct referral bonus",
+    "severity": "high",
+    "description_en": "Typical MLM compensation structures.",
+    "description_hi": "विशिष्ट एमएलएम मुआवजा संरचनाएं।",
+    "category": "ponzi",
+    "recommended_action_en": "Verify the actual product value.",
+    "recommended_action_hi": "वास्तविक उत्पाद मूल्य सत्यापित करें।"
+  },
+  {
+    "type": "pump_and_dump",
+    "pattern": "multibagger stock|buy this penny stock|insider info",
+    "severity": "high",
+    "description_en": "Stock recommendations on social media are often 'pump and dump' schemes.",
+    "description_hi": "सोशल मीडिया पर स्टॉक सिफारिशें अक्सर 'पंप और डंप' योजनाएं होती हैं।",
+    "category": "stock_tip",
+    "recommended_action_en": "Do not buy based on unsolicited advice.",
+    "recommended_action_hi": "अवांछित सलाह के आधार पर खरीदारी न करें।"
+  },
+  {
+    "type": "pump_and_dump",
+    "pattern": "upper circuit guaranteed|operator stock",
+    "severity": "critical",
+    "description_en": "Claims of operator manipulation are illegal.",
+    "description_hi": "ऑपरेटर हेरफेर के दावे अवैध हैं।",
+    "category": "stock_tip",
+    "recommended_action_en": "Report to SEBI.",
+    "recommended_action_hi": "सेबी को रिपोर्ट करें।"
+  },
+  {
+    "type": "pump_and_dump",
+    "pattern": "buy before it hits [0-9]+|next mrf",
+    "severity": "medium",
+    "description_en": "Hype creation for low liquidity stocks.",
+    "description_hi": "कम तरलता वाले शेयरों के लिए प्रचार निर्माण।",
+    "category": "stock_tip",
+    "recommended_action_en": "Do your own research.",
+    "recommended_action_hi": "अपना खुद का शोध करें।"
+  },
+  {
+    "type": "pump_and_dump",
+    "pattern": "bulk deal tomorrow|secret news",
+    "severity": "high",
+    "description_en": "Trading on insider information is illegal.",
+    "description_hi": "इनसाइडर जानकारी पर ट्रेडिंग करना अवैध है।",
+    "category": "stock_tip",
+    "recommended_action_en": "Ignore the tip.",
+    "recommended_action_hi": "टिप को अनदेखा करें।"
+  },
+  {
+    "type": "pump_and_dump",
+    "pattern": "accumulate at current levels|strong buy recommendation",
+    "severity": "low",
+    "description_en": "Standard advisory language, but risky if from unknown source.",
+    "description_hi": "मानक सलाहकार भाषा, लेकिन अज्ञात स्रोत से होने पर जोखिम भरा।",
+    "category": "stock_tip",
+    "recommended_action_en": "Verify source credibility.",
+    "recommended_action_hi": "स्रोत की विश्वसनीयता सत्यापित करें।"
+  },
+  {
+    "type": "phishing_otp",
+    "pattern": "share your otp|send pin|verify your account via link",
+    "severity": "critical",
+    "description_en": "Never share your OTP or PIN with anyone.",
+    "description_hi": "अपना ओटीपी या पिन कभी किसी के साथ साझा न करें।",
+    "category": "phishing",
+    "recommended_action_en": "Do not share OTP. Block the contact.",
+    "recommended_action_hi": "ओटीपी साझा न करें। संपर्क को ब्लॉक करें।"
+  },
+  {
+    "type": "phishing_otp",
+    "pattern": "forward this sms|click link to update kyc",
+    "severity": "critical",
+    "description_en": "Malicious links to steal credentials.",
+    "description_hi": "क्रेडेंशियल चुराने के लिए दुर्भावनापूर्ण लिंक।",
+    "category": "phishing",
+    "recommended_action_en": "Do not click. Delete message.",
+    "recommended_action_hi": "क्लिक न करें। संदेश हटाएं।"
+  },
+  {
+    "type": "phishing_otp",
+    "pattern": "install this apk for rewards",
+    "severity": "critical",
+    "description_en": "Third-party APKs can steal banking info.",
+    "description_hi": "थर्ड-पार्टी एपीके बैंकिंग जानकारी चुरा सकते हैं।",
+    "category": "malware",
+    "recommended_action_en": "Never install unknown apps.",
+    "recommended_action_hi": "अज्ञात ऐप कभी इंस्टॉल न करें।"
+  },
+  {
+    "type": "phishing_otp",
+    "pattern": "enter your upi pin to receive",
+    "severity": "critical",
+    "description_en": "UPI PIN is only used to SEND money, never to RECEIVE.",
+    "description_hi": "UPI पिन का उपयोग केवल पैसे भेजने के लिए किया जाता है, प्राप्त करने के लिए नहीं।",
+    "category": "phishing",
+    "recommended_action_en": "Do not enter PIN.",
+    "recommended_action_hi": "पिन दर्ज न करें।"
+  },
+  {
+    "type": "phishing_otp",
+    "pattern": "your pan is blocked update here",
+    "severity": "high",
+    "description_en": "Fake alerts to steal PAN details.",
+    "description_hi": "पैन विवरण चुराने के लिए फर्जी अलर्ट।",
+    "category": "phishing",
+    "recommended_action_en": "Check directly on official portal.",
+    "recommended_action_hi": "सीधे आधिकारिक पोर्टल पर जांचें।"
+  },
+  {
+    "type": "impersonation",
+    "pattern": "dear customer .* your account is blocked|kyc update required",
+    "severity": "high",
+    "description_en": "Banks do not send SMS with links to update KYC.",
+    "description_hi": "बैंक केवाईसी अपडेट करने के लिए लिंक के साथ एसएमएस नहीं भेजते हैं।",
+    "category": "phishing",
+    "recommended_action_en": "Do not click links. Contact your bank directly.",
+    "recommended_action_hi": "लिंक पर क्लिक न करें। सीधे अपने बैंक से संपर्क करें।"
+  },
+  {
+    "type": "impersonation",
+    "pattern": "police|cbi|customs official",
+    "severity": "critical",
+    "description_en": "Digital arrest scams impersonate law enforcement.",
+    "description_hi": "डिजिटल गिरफ्तारी घोटाले कानून प्रवर्तन का प्रतिरूपण करते हैं।",
+    "category": "extortion",
+    "recommended_action_en": "Do not pay. Call local police.",
+    "recommended_action_hi": "भुगतान न करें। स्थानीय पुलिस को बुलाएं।"
+  },
+  {
+    "type": "impersonation",
+    "pattern": "fedex|dhl package seized",
+    "severity": "critical",
+    "description_en": "Common parcel scam.",
+    "description_hi": "सामान्य पार्सल घोटाला।",
+    "category": "extortion",
+    "recommended_action_en": "Ignore. Do not transfer funds.",
+    "recommended_action_hi": "अनदेखा करें। फंड ट्रांसफर न करें।"
+  },
+  {
+    "type": "impersonation",
+    "pattern": "rbi manager|finance ministry",
+    "severity": "critical",
+    "description_en": "RBI never contacts individuals for money.",
+    "description_hi": "RBI कभी भी पैसों के लिए व्यक्तियों से संपर्क नहीं करता है।",
+    "category": "impersonation",
+    "recommended_action_en": "Report and block.",
+    "recommended_action_hi": "रिपोर्ट करें और ब्लॉक करें।"
+  },
+  {
+    "type": "impersonation",
+    "pattern": "customer support of [a-zA-Z]+",
+    "severity": "medium",
+    "description_en": "Fake customer care numbers.",
+    "description_hi": "फर्जी कस्टमर केयर नंबर।",
+    "category": "impersonation",
+    "recommended_action_en": "Verify number from official app.",
+    "recommended_action_hi": "आधिकारिक ऐप से नंबर सत्यापित करें।"
+  },
+  {
+    "type": "unrealistic_returns",
+    "pattern": "50% return|100% in a month",
+    "severity": "critical",
+    "description_en": "Unrealistic return expectations are fraudulent.",
+    "description_hi": "अवास्तविक वापसी की उम्मीदें धोखाधड़ी हैं।",
+    "category": "investment",
+    "recommended_action_en": "Do not engage.",
+    "recommended_action_hi": "संलग्न न हों।"
+  },
+  {
+    "type": "unrealistic_returns",
+    "pattern": "become crorepati in|make millions",
+    "severity": "high",
+    "description_en": "Get rich quick schemes.",
+    "description_hi": "जल्दी अमीर बनने की योजनाएं।",
+    "category": "investment",
+    "recommended_action_en": "Ignore.",
+    "recommended_action_hi": "अनदेखा करें।"
+  },
+  {
+    "type": "unrealistic_returns",
+    "pattern": "consistent [0-9]+% daily",
+    "severity": "critical",
+    "description_en": "Daily fixed returns are mathematically impossible.",
+    "description_hi": "दैनिक निश्चित रिटर्न गणितीय रूप से असंभव है।",
+    "category": "investment",
+    "recommended_action_en": "Block.",
+    "recommended_action_hi": "ब्लॉक करें।"
+  },
+  {
+    "type": "unrealistic_returns",
+    "pattern": "beat the market by [0-9]+x",
+    "severity": "medium",
+    "description_en": "Exaggerated claims.",
+    "description_hi": "अतिशयोक्तिपूर्ण दावे।",
+    "category": "investment",
+    "recommended_action_en": "Be skeptical.",
+    "recommended_action_hi": "संदेहवादी रहें।"
+  },
+  {
+    "type": "unrealistic_returns",
+    "pattern": "secret trading strategy",
+    "severity": "high",
+    "description_en": "Selling 'secrets' is a common ploy.",
+    "description_hi": "'रहस्य' बेचना एक आम चाल है।",
+    "category": "investment",
+    "recommended_action_en": "Do not buy the course.",
+    "recommended_action_hi": "कोर्स न खरीदें।"
+  },
+  {
+    "type": "money_transfer_request",
+    "pattern": "pay processing fee|registration charge",
+    "severity": "high",
+    "description_en": "Advance fee frauds ask for money upfront.",
+    "description_hi": "एडवांस शुल्क धोखाधड़ी अग्रिम पैसे मांगते हैं।",
+    "category": "advance_fee",
+    "recommended_action_en": "Do not pay.",
+    "recommended_action_hi": "भुगतान न करें।"
+  },
+  {
+    "type": "money_transfer_request",
+    "pattern": "transfer to this personal account",
+    "severity": "critical",
+    "description_en": "Legitimate businesses use corporate accounts.",
+    "description_hi": "वैध व्यवसाय कॉर्पोरेट खातों का उपयोग करते हैं।",
+    "category": "fraud",
+    "recommended_action_en": "Never send money to unknown personal accounts.",
+    "recommended_action_hi": "अज्ञात व्यक्तिगत खातों में कभी पैसे न भेजें।"
+  },
+  {
+    "type": "money_transfer_request",
+    "pattern": "send screenshot of payment",
+    "severity": "medium",
+    "description_en": "Often used in unverified transactions.",
+    "description_hi": "अक्सर असत्यापित लेनदेन में उपयोग किया जाता है।",
+    "category": "fraud",
+    "recommended_action_en": "Verify the recipient first.",
+    "recommended_action_hi": "पहले प्राप्तकर्ता की पुष्टि करें।"
+  },
+  {
+    "type": "money_transfer_request",
+    "pattern": "pay tax to withdraw",
+    "severity": "critical",
+    "description_en": "Scam to extract more money when you try to withdraw.",
+    "description_hi": "जब आप निकालने का प्रयास करते हैं तो अधिक पैसा निकालने का घोटाला।",
+    "category": "advance_fee",
+    "recommended_action_en": "Do not pay. Report platform.",
+    "recommended_action_hi": "भुगतान न करें। प्लेटफ़ॉर्म की रिपोर्ट करें।"
+  },
+  {
+    "type": "money_transfer_request",
+    "pattern": "customs clearance fee",
+    "severity": "critical",
+    "description_en": "Common in gift/parcel scams.",
+    "description_hi": "उपहार/पार्सल घोटालों में आम।",
+    "category": "advance_fee",
+    "recommended_action_en": "Ignore.",
+    "recommended_action_hi": "अनदेखा करें।"
+  },
+  {
+    "type": "telegram_whatsapp_group",
+    "pattern": "join my premium telegram|vip whatsapp group",
+    "severity": "high",
+    "description_en": "Groups used for coordinated pump and dumps.",
+    "description_hi": "समन्वित पंप और डंप के लिए उपयोग किए जाने वाले समूह।",
+    "category": "stock_tip",
+    "recommended_action_en": "Do not join or pay for subscription.",
+    "recommended_action_hi": "शामिल न हों या सदस्यता के लिए भुगतान न करें।"
+  },
+  {
+    "type": "telegram_whatsapp_group",
+    "pattern": "free tips in channel",
+    "severity": "medium",
+    "description_en": "Bait to get you into paid schemes.",
+    "description_hi": "आपको भुगतान योजनाओं में लाने के लिए चारा।",
+    "category": "stock_tip",
+    "recommended_action_en": "Be cautious of free tips.",
+    "recommended_action_hi": "मुफ्त युक्तियों से सावधान रहें।"
+  },
+  {
+    "type": "telegram_whatsapp_group",
+    "pattern": "admin will never text you first",
+    "severity": "low",
+    "description_en": "Standard disclaimer, but group itself may be shady.",
+    "description_hi": "मानक अस्वीकरण, लेकिन समूह ही संदेहास्पद हो सकता है।",
+    "category": "fraud",
+    "recommended_action_en": "Verify group intent.",
+    "recommended_action_hi": "समूह के इरादे को सत्यापित करें।"
+  },
+  {
+    "type": "fake_app_download",
+    "pattern": "download our trading terminal apk",
+    "severity": "critical",
+    "description_en": "Fake trading apps show fake profits.",
+    "description_hi": "फर्जी ट्रेडिंग ऐप फर्जी मुनाफा दिखाते हैं।",
+    "category": "malware",
+    "recommended_action_en": "Only use apps from official app stores.",
+    "recommended_action_hi": "केवल आधिकारिक ऐप स्टोर से ऐप्स का उपयोग करें।"
+  },
+  {
+    "type": "fake_app_download",
+    "pattern": "link to download app",
+    "severity": "high",
+    "description_en": "Sideloading apps is dangerous.",
+    "description_hi": "ऐप्स को साइडलोड करना खतरनाक है।",
+    "category": "malware",
+    "recommended_action_en": "Do not click link.",
+    "recommended_action_hi": "लिंक पर क्लिक न करें।"
+  },
+  {
+    "type": "fake_app_download",
+    "pattern": "update your banking app from here",
+    "severity": "critical",
+    "description_en": "Phishing to steal banking credentials.",
+    "description_hi": "बैंकिंग क्रेडेंशियल चुराने के लिए फ़िशिंग।",
+    "category": "malware",
+    "recommended_action_en": "Update only from Play Store/App Store.",
+    "recommended_action_hi": "केवल प्ले स्टोर/ऐप स्टोर से अपडेट करें।"
+  },
+  {
+    "type": "crypto_forex_scam",
+    "pattern": "cloud mining|guaranteed bitcoin",
+    "severity": "high",
+    "description_en": "Crypto scams promising high returns.",
+    "description_hi": "उच्च रिटर्न का वादा करने वाले क्रिप्टो घोटाले।",
+    "category": "crypto",
+    "recommended_action_en": "Avoid unregulated crypto schemes.",
+    "recommended_action_hi": "अनियमित क्रिप्टो योजनाओं से बचें।"
+  },
+  {
+    "type": "crypto_forex_scam",
+    "pattern": "forex trading bot|auto trade crypto",
+    "severity": "high",
+    "description_en": "Automated trading bots often lose money or are fake.",
+    "description_hi": "स्वचालित ट्रेडिंग बॉट अक्सर पैसे खो देते हैं या नकली होते हैं।",
+    "category": "crypto",
+    "recommended_action_en": "Do not invest.",
+    "recommended_action_hi": "निवेश न करें।"
+  },
+  {
+    "type": "crypto_forex_scam",
+    "pattern": "send btc to this wallet",
+    "severity": "critical",
+    "description_en": "Irreversible transactions requested by scammers.",
+    "description_hi": "घोटालेबाजों द्वारा अनुरोधित अपरिवर्तनीय लेनदेन।",
+    "category": "crypto",
+    "recommended_action_en": "Never send crypto to unknown wallets.",
+    "recommended_action_hi": "कभी भी अज्ञात वॉलेट में क्रिप्टो न भेजें।"
+  },
+  {
+    "type": "guaranteed_returns_hi",
+    "pattern": "paisa double|paise double",
+    "severity": "critical",
+    "description_en": "Promises to double money quickly are typical of ponzi schemes.",
+    "description_hi": "पैसे जल्दी दोगुना करने का वादा पोंजी योजनाओं की खासियत है।",
+    "category": "investment",
+    "recommended_action_en": "Report and ignore.",
+    "recommended_action_hi": "रिपोर्ट करें और अनदेखा करें।"
+  },
+  {
+    "type": "guaranteed_returns_hi",
+    "pattern": "guaranteed profit milega|fix return",
+    "severity": "critical",
+    "description_en": "Promises of guaranteed returns in stock markets are illegal and highly indicative of a scam.",
+    "description_hi": "शेयर बाजार में गारंटीकृत रिटर्न का वादा अवैध है और यह एक घोटाले का संकेत है।",
+    "category": "investment",
+    "recommended_action_en": "Block the sender. Do not invest.",
+    "recommended_action_hi": "प्रेषक को ब्लॉक करें। निवेश न करें।"
+  },
+  {
+    "type": "guaranteed_returns_hi",
+    "pattern": "koi risk nahi|zero risk hai",
+    "severity": "high",
+    "description_en": "All investments carry risk. 'Zero risk' claims are false.",
+    "description_hi": "सभी निवेशों में जोखिम होता है। 'शून्य जोखिम' के दावे झूठे हैं।",
+    "category": "investment",
+    "recommended_action_en": "Avoid the scheme.",
+    "recommended_action_hi": "इस योजना से बचें।"
+  },
+  {
+    "type": "guaranteed_returns_hi",
+    "pattern": "pakka profit|confirm kamao",
+    "severity": "high",
+    "description_en": "Claims of 'sure shot' profits in trading are deceptive.",
+    "description_hi": "ट्रेडिंग में 'श्योर शॉट' मुनाफे के दावे भ्रामक हैं।",
+    "category": "investment",
+    "recommended_action_en": "Do not trade based on this.",
+    "recommended_action_hi": "इसके आधार पर व्यापार न करें।"
+  },
+  {
+    "type": "guaranteed_returns_hi",
+    "pattern": "mahine ka fix aayega|har mahine fix",
+    "severity": "medium",
+    "description_en": "Fixed income from stocks is impossible to guarantee.",
+    "description_hi": "शेयरों से निश्चित आय की गारंटी देना असंभव है।",
+    "category": "investment",
+    "recommended_action_en": "Verify the financial instrument.",
+    "recommended_action_hi": "वित्तीय साधन का सत्यापन करें।"
+  },
+  {
+    "type": "urgency_pressure_hi",
+    "pattern": "offer jaldi khatam|aaj hi last|turant act karein",
+    "severity": "high",
+    "description_en": "Scammers create a false sense of urgency so you don't have time to think.",
+    "description_hi": "घोटालेबाज तात्कालिकता की झूठी भावना पैदा करते हैं ताकि आपके पास सोचने का समय न हो।",
+    "category": "manipulation",
+    "recommended_action_en": "Take your time. Do not rush any payment.",
+    "recommended_action_hi": "समय लें। कोई भी भुगतान जल्दबाजी में न करें।"
+  },
+  {
+    "type": "urgency_pressure_hi",
+    "pattern": "sirf kuch seat bachi hai|jaldi karo",
+    "severity": "medium",
+    "description_en": "Artificial scarcity to force quick decisions.",
+    "description_hi": "त्वरित निर्णय लेने के लिए कृत्रिम कमी।",
+    "category": "manipulation",
+    "recommended_action_en": "Ignore the pressure.",
+    "recommended_action_hi": "दबाव को अनदेखा करें।"
+  },
+  {
+    "type": "urgency_pressure_hi",
+    "pattern": "price badhne wala hai|rat tak valid",
+    "severity": "high",
+    "description_en": "Time-based pressure tactics.",
+    "description_hi": "समय आधारित दबाव की रणनीति।",
+    "category": "manipulation",
+    "recommended_action_en": "Do not pay.",
+    "recommended_action_hi": "भुगतान न करें।"
+  },
+  {
+    "type": "urgency_pressure_hi",
+    "pattern": "turant paise bhejo|abhibhejo",
+    "severity": "critical",
+    "description_en": "Urgent requests for money are almost always scams.",
+    "description_hi": "पैसे के लिए तत्काल अनुरोध लगभग हमेशा घोटाले होते हैं।",
+    "category": "advance_fee",
+    "recommended_action_en": "Block the sender immediately.",
+    "recommended_action_hi": "प्रेषक को तुरंत ब्लॉक करें।"
+  },
+  {
+    "type": "urgency_pressure_hi",
+    "pattern": "account band ho jayega|block ho jayega",
+    "severity": "critical",
+    "description_en": "Threats of account suspension to induce panic.",
+    "description_hi": "घबराहट पैदा करने के लिए खाता निलंबन की धमकियां।",
+    "category": "phishing",
+    "recommended_action_en": "Contact your bank directly.",
+    "recommended_action_hi": "सीधे अपने बैंक से संपर्क करें।"
+  },
+  {
+    "type": "fake_sebi_registration_hi",
+    "pattern": "sebi se register|sebi pass",
+    "severity": "high",
+    "description_en": "Scammers often falsely claim SEBI registration. Always verify on the official SEBI website.",
+    "description_hi": "घोटालेबाज अक्सर SEBI पंजीकरण का झूठा दावा करते हैं। हमेशा आधिकारिक वेबसाइट पर सत्यापित करें।",
+    "category": "impersonation",
+    "recommended_action_en": "Verify their SEBI registration number on sebi.gov.in.",
+    "recommended_action_hi": "sebi.gov.in पर उनके SEBI पंजीकरण संख्या को सत्यापित करें।"
+  },
+  {
+    "type": "fake_sebi_registration_hi",
+    "pattern": "nse authorised|bse expert",
+    "severity": "medium",
+    "description_en": "Exchanges do not authorize individuals in this manner.",
+    "description_hi": "एक्सचेंज इस तरह से व्यक्तियों को अधिकृत नहीं करते हैं।",
+    "category": "impersonation",
+    "recommended_action_en": "Ask for registration details and verify.",
+    "recommended_action_hi": "पंजीकरण विवरण मांगें और सत्यापित करें।"
+  },
+  {
+    "type": "fake_sebi_registration_hi",
+    "pattern": "rbi pass|sarkari scheme",
+    "severity": "critical",
+    "description_en": "RBI does not approve such investment schemes.",
+    "description_hi": "RBI ऐसी निवेश योजनाओं को मंजूरी नहीं देता है।",
+    "category": "impersonation",
+    "recommended_action_en": "Report to authorities.",
+    "recommended_action_hi": "अधिकारियों को रिपोर्ट करें।"
+  },
+  {
+    "type": "ponzi_mlm_signals_hi",
+    "pattern": "jodo aur kamao|member banao",
+    "severity": "critical",
+    "description_en": "Earning money primarily by recruiting others is a sign of a pyramid scheme.",
+    "description_hi": "मुख्य रूप से दूसरों की भर्ती करके पैसे कमाना पिरामिड योजना का संकेत है।",
+    "category": "ponzi",
+    "recommended_action_en": "Do not join or refer others.",
+    "recommended_action_hi": "शामिल न हों या दूसरों को संदर्भित न करें।"
+  },
+  {
+    "type": "ponzi_mlm_signals_hi",
+    "pattern": "chain system|network banao",
+    "severity": "high",
+    "description_en": "Multi-level income plans are often unsustainable.",
+    "description_hi": "मल्टी-लेवल आय योजनाएं अक्सर अस्थिर होती हैं।",
+    "category": "ponzi",
+    "recommended_action_en": "Avoid MLM schemes.",
+    "recommended_action_hi": "एमएलएम योजनाओं से बचें।"
+  },
+  {
+    "type": "pump_and_dump_hi",
+    "pattern": "yeh stock udne wala hai|kal upper circuit",
+    "severity": "critical",
+    "description_en": "Claims of operator manipulation are illegal.",
+    "description_hi": "ऑपरेटर हेरफेर के दावे अवैध हैं।",
+    "category": "stock_tip",
+    "recommended_action_en": "Report to SEBI.",
+    "recommended_action_hi": "सेबी को रिपोर्ट करें।"
+  },
+  {
+    "type": "pump_and_dump_hi",
+    "pattern": "operator ki khabar|andar ki baat",
+    "severity": "high",
+    "description_en": "Trading on insider information is illegal.",
+    "description_hi": "इनसाइडर जानकारी पर ट्रेडिंग करना अवैध है।",
+    "category": "stock_tip",
+    "recommended_action_en": "Ignore the tip.",
+    "recommended_action_hi": "टिप को अनदेखा करें।"
+  },
+  {
+    "type": "phishing_otp_hi",
+    "pattern": "otp batao|pin bhejo|link pe click karo",
+    "severity": "critical",
+    "description_en": "Never share your OTP or PIN with anyone.",
+    "description_hi": "अपना ओटीपी या पिन कभी किसी के साथ साझा न करें।",
+    "category": "phishing",
+    "recommended_action_en": "Do not share OTP. Block the contact.",
+    "recommended_action_hi": "ओटीपी साझा न करें। संपर्क को ब्लॉक करें।"
+  },
+  {
+    "type": "impersonation_hi",
+    "pattern": "police se bol raha hu|cbi ka case",
+    "severity": "critical",
+    "description_en": "Digital arrest scams impersonate law enforcement.",
+    "description_hi": "डिजिटल गिरफ्तारी घोटाले कानून प्रवर्तन का प्रतिरूपण करते हैं।",
+    "category": "extortion",
+    "recommended_action_en": "Do not pay. Call local police.",
+    "recommended_action_hi": "भुगतान न करें। स्थानीय पुलिस को बुलाएं।"
+  },
+  {
+    "type": "impersonation_hi",
+    "pattern": "tumhara parcel pakda gaya",
+    "severity": "critical",
+    "description_en": "Common parcel scam.",
+    "description_hi": "सामान्य पार्सल घोटाला।",
+    "category": "extortion",
+    "recommended_action_en": "Ignore. Do not transfer funds.",
+    "recommended_action_hi": "अनदेखा करें। फंड ट्रांसफर न करें।"
+  },
+  {
+    "type": "unrealistic_returns_hi",
+    "pattern": "crorepati bano|lakhon kamao",
+    "severity": "high",
+    "description_en": "Get rich quick schemes.",
+    "description_hi": "जल्दी अमीर बनने की योजनाएं।",
+    "category": "investment",
+    "recommended_action_en": "Ignore.",
+    "recommended_action_hi": "अनदेखा करें।"
+  },
+  {
+    "type": "money_transfer_request_hi",
+    "pattern": "pehle fees bhejo|registration ke paise",
+    "severity": "high",
+    "description_en": "Advance fee frauds ask for money upfront.",
+    "description_hi": "एडवांस शुल्क धोखाधड़ी अग्रिम पैसे मांगते हैं।",
+    "category": "advance_fee",
+    "recommended_action_en": "Do not pay.",
+    "recommended_action_hi": "भुगतान न करें।"
+  },
+  {
+    "type": "money_transfer_request_hi",
+    "pattern": "paise nikalne ke liye tax do",
+    "severity": "critical",
+    "description_en": "Scam to extract more money when you try to withdraw.",
+    "description_hi": "जब आप निकालने का प्रयास करते हैं तो अधिक पैसा निकालने का घोटाला।",
+    "category": "advance_fee",
+    "recommended_action_en": "Do not pay. Report platform.",
+    "recommended_action_hi": "भुगतान न करें। प्लेटफ़ॉर्म की रिपोर्ट करें।"
+  },
+  {
+    "type": "telegram_whatsapp_group_hi",
+    "pattern": "mera vip group join karo|premium telegram",
+    "severity": "high",
+    "description_en": "Groups used for coordinated pump and dumps.",
+    "description_hi": "समन्वित पंप और डंप के लिए उपयोग किए जाने वाले समूह।",
+    "category": "stock_tip",
+    "recommended_action_en": "Do not join or pay for subscription.",
+    "recommended_action_hi": "शामिल न हों या सदस्यता के लिए भुगतान न करें।"
+  },
+  {
+    "type": "fake_app_download_hi",
+    "pattern": "yeh app download karo|apk install karo",
+    "severity": "critical",
+    "description_en": "Fake trading apps show fake profits.",
+    "description_hi": "फर्जी ट्रेडिंग ऐप फर्जी मुनाफा दिखाते हैं।",
+    "category": "malware",
+    "recommended_action_en": "Only use apps from official app stores.",
+    "recommended_action_hi": "केवल आधिकारिक ऐप स्टोर से ऐप्स का उपयोग करें।"
+  },
+  {
+    "type": "crypto_forex_scam_hi",
+    "pattern": "bitcoin me paisa dalo|crypto mining",
+    "severity": "high",
+    "description_en": "Crypto scams promising high returns.",
+    "description_hi": "उच्च रिटर्न का वादा करने वाले क्रिप्टो घोटाले।",
+    "category": "crypto",
+    "recommended_action_en": "Avoid unregulated crypto schemes.",
+    "recommended_action_hi": "अनियमित क्रिप्टो योजनाओं से बचें।"
+  }
+]

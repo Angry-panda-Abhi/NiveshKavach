@@ -1,0 +1,13 @@
+fastapi
+uvicorn[standard]
+python-multipart
+pydantic-settings
+sqlalchemy
+aiosqlite
+google-generativeai
+twilio
+httpx
+Pillow
+edge-tts
+python-dotenv
+jinja2

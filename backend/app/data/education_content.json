@@ -1,0 +1,30 @@
+[
+  {
+    "category": "basics",
+    "title_en": "What is a Mutual Fund?",
+    "title_hi": "म्यूचुअल फंड क्या है?",
+    "content_en": "A mutual fund is a pool of money managed by a professional Fund Manager. It is a trust that collects money from a number of investors who share a common investment objective.",
+    "content_hi": "म्यूचुअल फंड एक पेशेवर फंड मैनेजर द्वारा प्रबंधित पैसे का एक पूल है। यह एक ट्रस्ट है जो उन निवेशकों से पैसा इकट्ठा करता है जिनका निवेश उद्देश्य समान होता है।"
+  },
+  {
+    "category": "scam_awareness",
+    "title_en": "How to identify a Pump and Dump Scam?",
+    "title_hi": "पंप और डंप घोटाले की पहचान कैसे करें?",
+    "content_en": "Scammers buy cheap stocks, then spread false positive news ('pump') to increase the price. Once unsuspecting investors buy and the price goes up, the scammers sell their shares ('dump'), causing the price to crash.",
+    "content_hi": "घोटालेबाज सस्ते शेयर खरीदते हैं, फिर कीमत बढ़ाने के लिए झूठी सकारात्मक खबर ('पंप') फैलाते हैं। जब अनजान निवेशक खरीदते हैं तो वे अपने शेयर बेच देते हैं ('डंप'), जिससे कीमत गिर जाती है।"
+  },
+  {
+    "category": "rights",
+    "title_en": "SEBI Regulations and Investor Rights",
+    "title_hi": "SEBI नियम और निवेशक अधिकार",
+    "content_en": "As an investor, you have the right to receive fair and equitable treatment, complete and truthful information, and the ability to file grievances via the SCORES platform.",
+    "content_hi": "एक निवेशक के रूप में, आपको निष्पक्ष और समान उपचार, पूर्ण और सच्ची जानकारी प्राप्त करने और SCORES प्लेटफॉर्म के माध्यम से शिकायत दर्ज करने का अधिकार है।"
+  },
+  {
+    "category": "grievances",
+    "title_en": "How to file a complaint (SCORES)",
+    "title_hi": "शिकायत कैसे दर्ज करें (SCORES)",
+    "content_en": "You can file a complaint against listed companies, registered intermediaries, and market infrastructure institutions through SEBI's SCORES portal (scores.gov.in).",
+    "content_hi": "आप SEBI के SCORES पोर्टल (scores.gov.in) के माध्यम से सूचीबद्ध कंपनियों, पंजीकृत मध्यस्थों और बाजार बुनियादी ढांचा संस्थानों के खिलाफ शिकायत दर्ज कर सकते हैं।"
+  }
+]
