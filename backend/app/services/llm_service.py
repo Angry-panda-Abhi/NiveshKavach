@@ -191,19 +191,15 @@ class LLMService:
                 "educational_tip": "Scammers often use images to bypass text filters. Always verify SEBI registration."
             }
             ```'''
-        else:
-            mock_llm_response = '''```json
-            {
-                "risk_score": 85,
-                "risk_level": "critical",
-                "flags": [{"type": "urgency", "description": "Creates false urgency"}],
-                "explanation": "This message exhibits typical signs of a pump and dump scheme.",
-                "actions": ["Block sender", "Do not click links"],
-                "educational_tip": "Never trust unsolicited investment advice on social media."
-            }
-            ```'''
-            
-        return self._extract_json(mock_llm_response)
+        # Fallback if API fails completely
+        return {
+            "risk_score": 0,
+            "risk_level": "UNKNOWN",
+            "flags": [{"type": "api_error", "description": "The AI analysis servers are currently overloaded."}],
+            "explanation": "We could not analyze the message due to high server load. Please retry in a few moments.",
+            "actions": ["Please click Analyze Risk to retry."],
+            "educational_tip": "If you suspect a message is a scam, always err on the side of caution and do not click any links."
+        }
 
     async def generate_education_response(self, topic: str, language: str) -> str:
         """Generate educational content about a topic using Gemini."""
@@ -259,6 +255,27 @@ class LLMService:
 
     async def translate_response(self, text: str, target_language: str) -> str:
         """Translate text to target language."""
+        prompt = f"Translate the following text to {target_language} accurately. Output ONLY the translated text, nothing else.\n\nText: {text}"
+        from app.config import settings
+        import httpx
+        
+        FREE_MODELS = ["qwen/qwen3.8-27b:free", "nvidia/nemotron-3.5-lightning:free"]
+        try:
+            if settings.OPENROUTER_API_KEY:
+                async with httpx.AsyncClient(timeout=15.0) as client:
+                    for model_id in FREE_MODELS:
+                        try:
+                            res = await client.post(
+                                "https://openrouter.ai/api/v1/chat/completions",
+                                headers={"Authorization": f"Bearer {settings.OPENROUTER_API_KEY}", "Content-Type": "application/json"},
+                                json={"model": model_id, "messages": [{"role": "user", "content": prompt}]}
+                            )
+                            res.raise_for_status()
+                            return res.json()["choices"][0]["message"]["content"].strip()
+                        except:
+                            continue
+        except:
+            pass
         return f"[Translated to {target_language}]: {text}"
         
     async def generate_whatsapp_response(self, text: str, language: str) -> str:
@@ -271,5 +288,27 @@ class LLMService:
         Language: {lang_name}
         Text: {text}
         """
-        # Simulated response
-        return f"*Caution:* This looks suspicious. Please do not share any personal details. (Generated in {lang_name})"
+        
+        from app.config import settings
+        import httpx
+        FREE_MODELS = ["qwen/qwen3.8-27b:free", "nvidia/nemotron-3.5-lightning:free"]
+        
+        try:
+            if settings.OPENROUTER_API_KEY:
+                async with httpx.AsyncClient(timeout=20.0) as client:
+                    for model_id in FREE_MODELS:
+                        try:
+                            res = await client.post(
+                                "https://openrouter.ai/api/v1/chat/completions",
+                                headers={"Authorization": f"Bearer {settings.OPENROUTER_API_KEY}", "Content-Type": "application/json"},
+                                json={"model": model_id, "messages": [{"role": "user", "content": prompt}]}
+                            )
+                            res.raise_for_status()
+                            return res.json()["choices"][0]["message"]["content"].strip()
+                        except Exception as e:
+                            logger.warning(f"WhatsApp generation failed for {model_id}: {e}")
+                            continue
+        except Exception as e:
+            logger.error(f"WhatsApp OpenRouter Error: {e}")
+            
+        return f"*Error:* Our AI servers are currently overloaded. Please try again in a few minutes."

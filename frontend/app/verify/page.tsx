@@ -2,22 +2,7 @@
 
 import { useState } from "react";
 
-const fallbackSearch = (query: string) => {
-  const q = query.toLowerCase();
-  if (q.includes("ina000011223") || q.includes("hdfc")) {
-    return {
-      found: true,
-      data: {
-        name: "HDFC Securities Ltd",
-        reg_no: "INA000011223",
-        type: "Registered Investment Advisor (RIA)",
-        status: "Active",
-        validity: "Perpetual"
-      }
-    };
-  }
-  return { found: false, data: null };
-};
+
 
 export default function VerifyPage() {
   const [query, setQuery] = useState("");
@@ -39,10 +24,9 @@ export default function VerifyPage() {
       const data = await res.json();
       setResult(data);
     } catch (error) {
-      setTimeout(() => {
-        setResult(fallbackSearch(query));
-        setLoading(false);
-      }, 1000);
+      console.error("Backend connection failed", error);
+      setResult({ found: false, data: null, error: "Could not connect to the SEBI verification server." });
+      setLoading(false);
       return;
     }
     setLoading(false);

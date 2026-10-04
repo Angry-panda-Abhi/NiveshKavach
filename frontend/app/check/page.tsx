@@ -2,44 +2,7 @@
 
 import { useState } from "react";
 
-// Mock Fallback Data if Backend is Down
-const fallbackAnalyze = (text: string) => {
-  const t = text.toLowerCase();
-  
-  if (t.includes("guaranteed") || t.includes("100% return") || t.includes("risk-free") || t.includes("multibagger")) {
-    return {
-      risk_score: 95,
-      risk_level: "CRITICAL",
-      flags: [
-        { severity: "high", reason: "Promises guaranteed returns which is illegal under SEBI regulations." },
-        { severity: "high", reason: "Uses 'Multibagger' hype keywords typical of pump-and-dump schemes." }
-      ],
-      recommendations: ["Do not invest any money.", "Block and report the sender.", "File a complaint on the SCORES portal."],
-      educational_tip: "SEBI registered advisors are not allowed to promise guaranteed returns in the stock market."
-    };
-  } else if (t.includes("crypto") || t.includes("bitcoin") || t.includes("forex")) {
-    return {
-      risk_score: 75,
-      risk_level: "HIGH",
-      flags: [
-        { severity: "high", reason: "Unregulated asset class mentioned (Crypto/Forex)." },
-        { severity: "medium", reason: "High volatility risk." }
-      ],
-      recommendations: ["Verify if the entity is FIU-IND registered.", "Do not click on obscure exchange links."],
-      educational_tip: "Crypto is highly unregulated in India. Proceed with extreme caution."
-    };
-  } else if (text.trim() === "") {
-    return null;
-  }
-  
-  return {
-    risk_score: 10,
-    risk_level: "LOW",
-    flags: [],
-    recommendations: ["Always verify the SEBI registration number of any advisor.", "Read all scheme related documents carefully."],
-    educational_tip: "Legitimate advisors will always share their SEBI registration number (e.g. INA000000000)."
-  };
-};
+
 
 export default function CheckPage() {
   const [text, setText] = useState("");
@@ -66,13 +29,14 @@ export default function CheckPage() {
       const data = await res.json();
       setResult(data);
     } catch (error) {
-      console.warn("Backend unavailable, using fallback logic.");
-      // Simulated network delay
-      setTimeout(() => {
-        setResult(fallbackAnalyze(text));
-        setLoading(false);
-      }, 1500);
-      return;
+      console.error("Backend connection failed", error);
+      setResult({
+        risk_score: 0,
+        risk_level: "ERROR",
+        flags: [{ reason: "Could not connect to the NiveshKavach AI Backend." }],
+        recommendations: ["Ensure the FastAPI server is running on port 8000.", "Check your internet connection."],
+        educational_tip: "Connection to the AI server timed out."
+      });
     }
     
     setLoading(false);
